@@ -16,12 +16,12 @@ public class SpringBootEsController {
     private PersonService personService;
 
     @GetMapping(value = "/")
-    public String index(){
+    public String index() {
         return "Welcome to using SpringBoot and Elasticsearch";
     }
 
     @GetMapping(value = "/get")
-    public Map<String, Object> get (@RequestParam(value = "id") String id){
+    public Map<String, Object> get(@RequestParam(value = "id") String id) {
         return personService.get(id);
     }
 }

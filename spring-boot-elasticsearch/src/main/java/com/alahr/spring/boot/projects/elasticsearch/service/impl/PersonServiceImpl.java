@@ -35,7 +35,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public Map<String, Object> get(String id) {
-        if(StringUtils.isEmpty(id)){
+        if (StringUtils.isEmpty(id)) {
             return null;
         }
 
@@ -43,11 +43,11 @@ public class PersonServiceImpl implements PersonService {
         try {
             GetResponse response = restHighLevelClient.get(request, RequestOptions.DEFAULT);
             return response.getSourceAsMap();
-        } catch (ElasticsearchException e){
+        } catch (ElasticsearchException e) {
             if (e.status() == RestStatus.CONFLICT) {
                 logger.error("CONFLICT when get, doc: {}", id, e);
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             logger.error("Unknown exception when get, id: {}", id, e);
         }
 
@@ -56,7 +56,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public void add(Person person) {
-        if(null == person || StringUtils.isEmpty(person.getId())){
+        if (null == person || StringUtils.isEmpty(person.getId())) {
             return;
         }
         IndexRequest request = new IndexRequest(esAlias);
@@ -65,18 +65,18 @@ public class PersonServiceImpl implements PersonService {
 
         try {
             restHighLevelClient.index(request, RequestOptions.DEFAULT);
-        } catch(ElasticsearchException e) {
+        } catch (ElasticsearchException e) {
             if (e.status() == RestStatus.CONFLICT) {
                 logger.error("CONFLICT when add, doc: {}", person.getId(), e);
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             logger.error("Unknown exception when add", e);
         }
     }
 
     @Override
     public void update(Person person) {
-        if(null == person || StringUtils.isEmpty(person.getId())){
+        if (null == person || StringUtils.isEmpty(person.getId())) {
             return;
         }
 
@@ -84,28 +84,28 @@ public class PersonServiceImpl implements PersonService {
         request.doc(JSON.toJSONString(person), XContentType.JSON);
         try {
             restHighLevelClient.update(request, RequestOptions.DEFAULT);
-        } catch(ElasticsearchException e) {
+        } catch (ElasticsearchException e) {
             if (e.status() == RestStatus.CONFLICT) {
                 logger.error("CONFLICT when update, doc: {}", person.getId(), e);
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             logger.error("Unknown exception update add", e);
         }
     }
 
     @Override
     public void delete(String id) {
-        if(StringUtils.isEmpty(id)){
+        if (StringUtils.isEmpty(id)) {
             return;
         }
         DeleteRequest request = new DeleteRequest(esAlias, id);
         try {
             restHighLevelClient.delete(request, RequestOptions.DEFAULT);
-        } catch(ElasticsearchException e) {
+        } catch (ElasticsearchException e) {
             if (e.status() == RestStatus.CONFLICT) {
                 logger.error("CONFLICT when delete, doc: {}", id, e);
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             logger.error("Unknown exception when delete", e);
         }
 

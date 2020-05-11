@@ -22,9 +22,9 @@ public class RestHighLevelClientConfig {
     private String scheme;
 
     @Bean(value = "restHighLevelClient")
-    public RestHighLevelClient init(){
+    public RestHighLevelClient init() {
         List<HttpHost> list = new ArrayList<>();
-        for(String host : hosts.split(",")){
+        for (String host : hosts.split(",")) {
             HttpHost httpHost = new HttpHost(host, port, scheme);
             list.add(httpHost);
         }
@@ -35,7 +35,7 @@ public class RestHighLevelClientConfig {
     }
 
     @PreDestroy
-    public void close(){
+    public void close() {
 
     }
 

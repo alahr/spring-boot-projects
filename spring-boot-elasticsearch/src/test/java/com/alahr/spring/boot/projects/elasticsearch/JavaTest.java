@@ -17,7 +17,7 @@ public class JavaTest {
 
         Person[] array = list.toArray(new Person[0]);
 
-        for(Person p : array){
+        for (Person p : array) {
             System.out.println(p.getName());
         }
     }

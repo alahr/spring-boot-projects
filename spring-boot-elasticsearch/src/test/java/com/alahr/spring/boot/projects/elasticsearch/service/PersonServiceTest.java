@@ -22,13 +22,13 @@ public class PersonServiceTest {
     private PersonService personService;
 
     @Test
-    public void get(){
+    public void get() {
         Map<String, Object> map = personService.get("2");
         System.out.println(JSON.toJSONString(map));
     }
 
     @Test
-    public void add(){
+    public void add() {
         Person person = new Person();
         person.setId("1");
         person.setName("Lucy");
@@ -41,7 +41,7 @@ public class PersonServiceTest {
     }
 
     @Test
-    public void update(){
+    public void update() {
         Person person = new Person();
         person.setId("1");
         person.setName("Tom");
@@ -53,7 +53,7 @@ public class PersonServiceTest {
     }
 
     @Test
-    public void delete(){
+    public void delete() {
         personService.delete("1");
     }
 }
