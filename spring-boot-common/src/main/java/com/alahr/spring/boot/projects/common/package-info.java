@@ -1,0 +1,1 @@
+package com.alahr.spring.boot.projects.common;
