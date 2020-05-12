@@ -6,10 +6,10 @@ import java.util.Date;
 
 public class DateUtil {
 
-    private final static String PATTERN_1 = "yyyy-MM-dd HH:mm:ss";
-    private final static String PATTERN_2 = "yyyy-MM-dd";
+    public final static String PATTERN_1 = "yyyy-MM-dd HH:mm:ss";
+    public final static String PATTERN_2 = "yyyy-MM-dd";
 
-    public static Date parse(String d){
+    public static Date parseString2Date(String d){
         SimpleDateFormat sdf = new SimpleDateFormat(PATTERN_2);
         try {
             return sdf.parse(d);
@@ -17,5 +17,10 @@ public class DateUtil {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static String parseDate2String(Date d){
+        SimpleDateFormat sdf = new SimpleDateFormat(PATTERN_1);
+        return sdf.format(d);
     }
 }

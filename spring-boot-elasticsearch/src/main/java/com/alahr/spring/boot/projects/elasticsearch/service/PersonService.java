@@ -1,6 +1,8 @@
 package com.alahr.spring.boot.projects.elasticsearch.service;
 
 import com.alahr.spring.boot.projects.elasticsearch.model.Person;
+import com.alahr.spring.boot.projects.elasticsearch.model.PersonRequest;
+import com.alahr.spring.boot.projects.elasticsearch.model.ResultResponse;
 
 import java.util.Map;
 
@@ -12,4 +14,6 @@ public interface PersonService {
     void update(Person person);
 
     void delete(String id);
+
+    ResultResponse query(PersonRequest param);
 }

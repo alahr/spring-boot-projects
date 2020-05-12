@@ -1,17 +1,16 @@
 package com.alahr.spring.boot.projects.elasticsearch.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Person implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String id;
     private String name;
-    private Date birthday;
+    private String birthday;
     private String address;
-    private Date createdTime;
-    private Date modifiedTime;
+    private String createdTime;
+    private String modifiedTime;
 
     public String getId() {
         return id;
@@ -29,11 +28,11 @@ public class Person implements Serializable {
         this.name = name;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -45,19 +44,19 @@ public class Person implements Serializable {
         this.address = address;
     }
 
-    public Date getCreatedTime() {
+    public String getCreatedTime() {
         return createdTime;
     }
 
-    public void setCreatedTime(Date createdTime) {
+    public void setCreatedTime(String createdTime) {
         this.createdTime = createdTime;
     }
 
-    public Date getModifiedTime() {
+    public String getModifiedTime() {
         return modifiedTime;
     }
 
-    public void setModifiedTime(Date modifiedTime) {
+    public void setModifiedTime(String modifiedTime) {
         this.modifiedTime = modifiedTime;
     }
 }
