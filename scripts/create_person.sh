@@ -5,7 +5,7 @@ create_index(){
 	  "mappings": {
 		"properties": {
 			"name": {
-				"type": "text"
+				"type": "keyword"
 			},
 			"birthday": {
 				"type": "date",
